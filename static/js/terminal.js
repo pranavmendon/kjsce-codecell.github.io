@@ -728,24 +728,18 @@
 		function likeasir(func_options) {
 			location.href = "#our-team"
 			if (typeof func_options === "undefined") func_options = '';
+			// Reset to normal first
 			$('.avatar').each((index, element) => {
-				var src = $(element).attr('src').split('.');
-				var path = src[0].split('_');
-				$(element).attr('src', path[0] + '_' + path[1] + '.' + src.pop());
+				var src = $(element).attr('src');
+				$(element).attr('src', src.replace('/shades/', '/normal/').replace('/likeasir/', '/normal/'));
 			});
 			if (func_options != "clear") {
 				$('.avatar').each((index, element) => {
 					var src = $(element).attr('src');
-					var path = src.split('.');
-					$(element).attr('src', path[0] + '_likeasir' + '.' + path.pop());
+					$(element).attr('src', src.replace('/normal/', '/likeasir/'));
 				});
 				$("#onlineTerminal").html($("#onlineTerminal").html().trim() + '<span class="response">I mustache you a question, but I\'ll shave it for later.</span>' + breakLine() + breakLine());
 			} else {
-				$('.avatar').each((index, element) => {
-					var src = $(element).attr('src').split('.');
-					var path = src[0].split('_');
-					$(element).attr('src', path[0] + '_' + path[1] + '.' + src.pop());
-				});
 				$("#onlineTerminal").html($("#onlineTerminal").html().trim() + '<span class="response">Too fancy. *sigh*</span>' + breakLine() + breakLine());
 			}
 			//ga( 'send', 'event', 'toys', 'terminal', 'likeasir');
@@ -754,24 +748,18 @@
 		function shades(func_options) {
 			location.href = "#our-team";
 			if (typeof func_options === "undefined") func_options = '';
+			// Reset to normal first
 			$('.avatar').each((index, element) => {
-				var src = $(element).attr('src').split('.');
-				var path = src[0].split('_');
-				$(element).attr('src', path[0] + '_' + path[1] + '.' + src.pop());
+				var src = $(element).attr('src');
+				$(element).attr('src', src.replace('/shades/', '/normal/').replace('/likeasir/', '/normal/'));
 			});
 			if (func_options != "clear") {
 				$('.avatar').each((index, element) => {
 					var src = $(element).attr('src');
-					var path = src.split('.');
-					$(element).attr('src', path[0] + '_shades.' + path.pop());
+					$(element).attr('src', src.replace('/normal/', '/shades/'));
 				});
 				$("#onlineTerminal").html($("#onlineTerminal").html().trim() + '<span class="response">Wake up in the mornin\' feelin\' like Kanye.</span>' + breakLine() + breakLine());
 			} else {
-				$('.avatar').each((index, element) => {
-					var src = $(element).attr('src').split('.');
-					var path = src[0].split('_');
-					$(element).attr('src', path[0] + '_' + path[1] + '.' + src.pop());
-				});
 				$("#onlineTerminal").html($("#onlineTerminal").html().trim() + '<span class="response">I was feeling like a total douche. *sigh*</span>' + breakLine() + breakLine());
 			}
 			//ga( 'send', 'event', 'toys', 'terminal', 'shades');
